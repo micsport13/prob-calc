@@ -1,6 +1,6 @@
-class event {
+class Event {
    public:
-    event(double probability = 0, std::string eventName = "default");
+    Event(double probability = 0, std::string name = "default");
     void SetEventName(std::string name) {
         eventName = name;
     };
