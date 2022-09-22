@@ -14,6 +14,7 @@ int GetUserInt(const std::string& prompt);
 void DisplayOptions() {
     std::cout << "1. Create event" << std::endl;
     std::cout << "2. Assign probability to event" << std::endl;
+    std::cout << "3. Rename event probability" << std::endl;
 }
 
 int main() {
