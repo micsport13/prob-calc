@@ -6,29 +6,34 @@
 #include "distribution.h"
 #include "equations.h"
 #include "event.h"
-#include <vector>
 
 std::string GetUserString(const std::string& prompt);
 double GetUserDouble(const std::string& prompt);
 int GetUserInt(const std::string& prompt);
 void DisplayOptions() {
     std::cout << "1. Create event" << std::endl;
-    std::cout << "2. Assign probability to event" << std::endl;
+    std::cout << "2. List all events" << std::endl;
     std::cout << "3. Rename event probability" << std::endl;
+    std::cout << "4. Remove event" << std::endl;
+    std::cout << "Quit: Quit out of the program";
 }
 
 int main() {
-    std::vector<Event> eventList;
-    std::cout << "Please choose a number option from the list below" << std::endl;
-    DisplayOptions();
-    std::string userString = GetUserString("Put option here: ");
-    if (userString == "1") {
-        std::string eventName = GetUserString("Please name the event to something identifiable: ");
-        double eventProbability = GetUserDouble("Please assign a probability to the event");
-        new Event (eventProbability, eventName);
-    } else if (userString == "2") {
-        
-    }
+    do {
+        std::cout << "Please choose a number option from the list below:" << std::endl;
+        DisplayOptions();
+        std::string userString = GetUserString("Put option here: ");
+        if (userString == "1") {
+            std::string eventName = GetUserString("Please name the event to something identifiable: ");
+            double eventProbability = GetUserDouble("Please assign a probability to the event: ");
+            Event event1(eventProbability, eventName);
+        } else if (userString == "2") {
+            std::cout << "This function is not yet implemented.  Please select another option" << std::endl;
+            continue;
+        } else if (userString == "Quit"){
+            break;
+        }
+    } while (true);
     return 0;
 }
 
