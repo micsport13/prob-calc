@@ -2,7 +2,7 @@
 #define EVENT_H
 class Event {
    public:
-    Event(double probability = 0, std::string name = "default") {
+    Event(double probability = 0, std::string name = "default", std::string dist_name = NULL) {
         if (probability <= 1 && probability >= 0) {
             eventProbability = probability;
         } else {
@@ -20,12 +20,30 @@ class Event {
         std::cin >> name;
         eventName = name;
     };
-    void SetEventProbability(double probability) {
-        eventProbability = probability;
+    void SetEventProbability(Event& event) {
+        double eventProbability;
+        std::cout << "Please enter a probability: ";
+        std::cin >> eventProbability;
+        event.eventProbability = eventProbability;
     }
-
+    void SetEventDistName(Event& event) {
+        std::string distName;
+        std::cout << "Please enter a probability: ";
+        std::cin >> eventProbability;
+        event.eventDistName = distName;
+    }
+    double GetEventProbability(){
+        return eventProbability;
+    }
+    std::string GetEventName(){
+        return eventName;
+    }
+    std::string GetEventDistName(){
+        return eventDistName;
+    }
    private:
     double eventProbability;
     std::string eventName;
+    std::string eventDistName;
 };
 #endif

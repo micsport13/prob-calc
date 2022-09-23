@@ -15,7 +15,7 @@ void DisplayOptions() {
     std::cout << "2. List all events" << std::endl;
     std::cout << "3. Rename event probability" << std::endl;
     std::cout << "4. Remove event" << std::endl;
-    std::cout << "Quit: Quit out of the program";
+    std::cout << "Quit: Quit out of the program" << std::endl;
 }
 
 int main() {
@@ -30,7 +30,13 @@ int main() {
         } else if (userString == "2") {
             std::cout << "This function is not yet implemented.  Please select another option" << std::endl;
             continue;
-        } else if (userString == "Quit"){
+        } else if (userString == "3") {
+            std::cout << "This function is not yet implemented.  Please select another option" << std::endl;
+            continue;
+        } else if (userString == "4") {
+            std::cout << "This function is not yet implemented.  Please select another option" << std::endl;
+            continue;
+        } else if (userString == "Quit") {
             break;
         }
     } while (true);
