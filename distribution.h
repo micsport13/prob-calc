@@ -24,9 +24,7 @@ double DistributionCalc(Event& event) {
         std::cin >> sigma;
         std::cout << "Please enter the desired value to calculate: ";
         std::cin >> desiredValue;
-        double exponent = std::pow(e,-.5);
-        double zscore = pow((desiredValue - mean) / sigma, 2);
-        return (1 / (sigma * sqrt(2 * pi))) * exponent * zscore;
+        return (1 / (sigma * sqrt(2 * pi))) * std::pow(e,-.5) * std::pow((desiredValue - mean) / sigma, 2);
     } else if (event.GetEventDistName() == "Beta") {
         // Insert Beta PDF here
         return 0.0;
