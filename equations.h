@@ -1,5 +1,4 @@
-#ifndef EQUATIONS_H
-#define EQUATIONS_H
+#pragma once
 class Equation {
    public:
     Equation(std::string name = "default equation", int num = 0);
@@ -8,4 +7,3 @@ class Equation {
     std::string equationName;
     int numParams;
 };
-#endif

@@ -2,6 +2,7 @@
 // Include headers below
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "distribution.h"
 #include "equations.h"
@@ -15,10 +16,12 @@ void DisplayOptions() {
     std::cout << "2. List all events" << std::endl;
     std::cout << "3. Rename event probability" << std::endl;
     std::cout << "4. Remove event" << std::endl;
+    std::cout << "5. Calculate probabilty" << std::endl;
     std::cout << "Quit: Quit out of the program" << std::endl;
 }
 
 int main() {
+    std::vector<Event> EventList;
     do {
         std::cout << "Please choose a number option from the list below:" << std::endl;
         DisplayOptions();
@@ -26,7 +29,9 @@ int main() {
         if (userString == "1") {
             std::string eventName = GetUserString("Please name the event to something identifiable: ");
             double eventProbability = GetUserDouble("Please assign a probability to the event: ");
-            Event event1(eventProbability, eventName);
+            std::string eventDistName = GetUserString("Please select a distribution for the variable, if applicable: ");
+            Event event1(eventProbability, eventName, eventDistName);
+            EventList.push_back(event1);
         } else if (userString == "2") {
             std::cout << "This function is not yet implemented.  Please select another option" << std::endl;
             continue;
@@ -36,6 +41,8 @@ int main() {
         } else if (userString == "4") {
             std::cout << "This function is not yet implemented.  Please select another option" << std::endl;
             continue;
+        } else if (userString == "5") {
+            std::cout << DistributionCalc(EventList[0]) << std::endl;
         } else if (userString == "Quit") {
             break;
         }

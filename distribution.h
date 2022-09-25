@@ -1,7 +1,7 @@
-#ifndef DISTRIBUTION_H
-#define DISTRIBUTION_H
+#pragma once
 #include <climits>
-#include <cmath>
+#include <math.h>
+#include "event.h"
 class Distribution {
    public:
     Distribution(long lowerInput = INT64_MIN, long upperInput = INT_MAX, std::string name = "default");  // Fill in equation class
@@ -12,10 +12,21 @@ class Distribution {
 };
 
 const double pi = 3.1415926;
+const double e = 2.71828;
 double DistributionCalc(Event& event) {
     if (event.GetEventDistName() == "Normal") {
-        // return (1 / sqrt(2 * pi)) * exp((-1 / 2) * ((x -\mu) / sigma) ^ 2);  FIXME
-        return 0.0;
+        double mean = 0.0;
+        double sigma = 0.0;
+        double desiredValue = 0.0;
+        std::cout << "Please enter the mean: ";
+        std::cin >> mean;
+        std::cout << "Please enter the standard deviation: ";
+        std::cin >> sigma;
+        std::cout << "Please enter the desired value to calculate: ";
+        std::cin >> desiredValue;
+        double exponent = std::pow(e,-.5);
+        double zscore = pow((desiredValue - mean) / sigma, 2);
+        return (1 / (sigma * sqrt(2 * pi))) * exponent * zscore;
     } else if (event.GetEventDistName() == "Beta") {
         // Insert Beta PDF here
         return 0.0;
@@ -36,4 +47,3 @@ double DistributionCalc(Event& event) {
         return 0.0;
     }
 }
-#endif
